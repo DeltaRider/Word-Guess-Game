@@ -12,6 +12,8 @@
 <body class="bg-image">
     <div class="header">
         <p>Copyright &copy;</p>
+        <div id="song"></div>
+        <div id="sound"></div>
     </div>
     <div class="header-img"></div>
     <div class="container">
@@ -22,21 +24,25 @@
         <div class="rightcol">
             <div class="textbox">
                 <div class="topline">
-                    <p>Welcome to <h1>Hood Rap Hangman!</h1></p>
+                    <p id="score">Welcome to <h1 id="delete">Hood Rap Hangman!</h1></p>
                 </div>
                 <div class="play">
-                    <h2>The hip-hop/rap themed hangman game.</h2>
-                    <p>Here's how to play:</p>
-                    <p>You will be given a hint about a hip-hop/rap song, artist, or fact.  Keep in mind these ain't your momma's rap songs, artists, or facts.  This game only includes the realest.</p>
-                    <p>With the hint, you will try to guess each letter in the word.  Each underscore represents one letter, as seen below.</p>
-                    <p>If you guess the letter correclty, the underscore will be filled in with that letter.</p> 
-                    <p>If you guess incorrectly, the man will begin the process of hanging.  You have 9 tries before he is fully hung.  A fully hung sucka means means you lose, sucka.</p> 
-                    <p>If you guess every letter in the word before he is hung then I guess it's your lucky day...</p>
-                    <p>Press the spacebar to begin!</p>
-
+                    <h2 id="letters">The hip-hop/rap themed hangman game.</h2>
+                    <p id="hint">Here's how to play:</p>
+                    <p id="hinttext">You will be given a hint about a hip-hop/rap song, artist, or fact.  Keep in mind these ain't your momma's rap songs, artists, or facts.  This game only includes the realest.</p>
+                    <div id="getlost">
+                        <p id="smoke">With the hint, you will try to guess the word or phrase, entering one letter at a time.  The amount of letters in the word or phrase is represented by underscores _ _ _ _  _ _ _.</p>
+                        <p id="smoke">If you guess the letter correclty, the underscore will be filled in with that letter.</p> 
+                        <p id="smoke">If you guess incorrectly, the man will begin the process of hanging.  You have 9 tries before he is fully hung.  A fully hung sucka means means you lose, sucka.</p> 
+                        <p id="smoke">If you guess every letter in the word before he is hung then I guess it's your lucky day...</p>
+                        <p id="smoke">Press the spacebar to begin!</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>       
+    </div> 
+    
+<script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
 </html>
+    

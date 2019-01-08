@@ -17,13 +17,13 @@ body, html {
 .header {
     height: 60px;
     background-color: #404040;
-    border-bottom: 2px solid #E5E5E5;
+    border-bottom: 5px solid #E5E5E5;
     text-align: center;
 }
 
 .header p {
     color: #FFFFFF;
-    padding-top: 25px;
+    padding-top: 22px;
     font-size: 9px;
 }
 
@@ -33,7 +33,7 @@ body, html {
     margin-right: auto;
     height: 646px;
     background-color: #E5E5E5;
-    border-bottom: black solid 2px;
+    border-bottom: black solid 5px;
 }
 
 .container img {
