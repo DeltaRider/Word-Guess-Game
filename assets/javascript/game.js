@@ -3,15 +3,48 @@ var losses = 0;
 var guessesLeft = 9;
 var lettersGuessed = [];
 var lettersArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var ranNum = Math.floor(Math.random()*lettersArr.length);
-var wordToGuess = "thizzlenations"; //max 14 characters all lower case.
+var wordToGuess = "bigl"; //max 14 characters all lower case.
 var guessedCorrect = [];
+var goodCount = 0;
 var hangStage = "./assets/images/hung-start.png";
 var newNum;
 var start = true;
 var spacebar = true;
 var k;
+var tutor = false;
+var gamesArr = [
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/001-allcity-actual.mp3" type="audio/mpeg"></audio>',
+        word: 'primo',
+        hint: "Christopher Edward Martin, known professionally as DJ Premier, has collaborated with many East Coast Rappers, including the current group playing named All City.  One of DJ Premier's well known nickname's is what 5 letter word?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/002-allcity-moveonyou.mp3" type="audio/mpeg"></audio>',
+        word: 'allcity',
+        hint: "This American rap duo composed of Brooklyn-based rappers J. Mega and Greg Valentine is best known for its hit single \"The Actual\", of which they partnered with DJ Premier for the beat.  What is this rap duo's name?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/003-nickatina-ayo.mp3" type="audio/mpeg"></audio>',
+        word: 'cocaine',
+        hint: "In the song Ayo for Yayo by Andre Nickatina, he frequently refers to Yayo.  Yayo is slang for what?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/004-nickatina-4am.mp3" type="audio/mpeg"></audio>',
+        word: 'oakland',
+        hint: "In the song 4am-Bay Bridge Music by Andre Nickatina, refers to the Bay Bridge in the San Francisco Bay Area.  The Bay Bridge connects San Francisco to which city?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/005-nickatina-gitdown.mp3" type="audio/mpeg"></audio>',
+        word: 'equipto',
+        hint: "Andre Nickatina collaborates on many albums, but especially with one particular artist.  An example would be the 2005 album Horns and Halos.  Who is this artist?"
+    }
+];
+var ranNum = Math.floor(Math.random()*gamesArr.length);
+var gameHint;
+var gameSong;
 
+console.log(ranNum);
+    
 function beginTutorial(){
     document.onkeypress = function(e){
         if(e.keyCode == 32 && spacebar == true){
@@ -33,20 +66,21 @@ beginTutorial();
 
 
 function grabKeyPressed(){        
-    if (!lettersGuessed.includes(event.key) && lettersArr.includes(event.key) && !wordToGuess.includes(event.key)){
+    if (tutor==false && !lettersGuessed.includes(event.key) && lettersArr.includes(event.key) && !wordToGuess.includes(event.key)){
         lettersGuessed.push(event.key);
         typeLetters();
         guessCounter();
         document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
         hangChange();
-        if (guessesLeft>0){
+        if (tutor==false && guessesLeft>0){
             badSound(); 
             blinkBlue();
             setTimeout(blinkRed, 300);
             setTimeout(blinkBlue, 600);
             setTimeout(resetPic, 900); 
-        } else if (guessesLeft===0){
+        } else if (tutor==false && guessesLeft===0){
             !lettersGuessed.push(event.key);
+            tutor = true;
             loseSound();
             blinkBlue();
             setTimeout(blinkRed, 300);
@@ -59,15 +93,25 @@ function grabKeyPressed(){        
             setTimeout(blinkBlue, 2400);
             setTimeout(readyToPlay, 2400);
         }
-    } else if (guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key)){
+    } else if (tutor==false && guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key) && tutor==false){
+        goodCount++;
         strUpdater();
         goodSound();
         blinkPurp();
         setTimeout(blinkWhite, 300);
         setTimeout(blinkPurp, 600);
-        setTimeout(resetPic, 900); 
-    }
-
+        setTimeout(resetPic, 900);
+        if (goodCount == wordToGuess.length){
+            tutor=true;
+            setTimeout(blinkWhite, 900);
+            setTimeout(winSound, 900);
+            setTimeout(blinkPurp, 1200);
+            setTimeout(winSoundTwo, 1500);
+            setTimeout(blinkWhite, 1500);
+            setTimeout(blinkPurp, 1800);
+            setTimeout(readyToPlay, 2100);
+        }
+    } 
 }
 
 function guessCounter(){
@@ -91,6 +135,7 @@ function tutorialTime(){
 
 function hangStart(){
     if (guessesLeft === 9){
+        hangStage = "./assets/images/hung-start.png";
         document.querySelector('#hangstage').src = hangStage;
     }
 }
@@ -119,6 +164,13 @@ function hangChange(){
 
 function readyToPlay(){
     var ready = prompt("Well done sucka.  You completed the tutorial.  Easy right?  \n\nIf you want to retry the tutorial, type \"retry\" and press OK.  \n\nIf you're ready to play for real, type \"play\" and press OK. \n\nIf and when you're done playing, exit the window.")
+    if (ready == "retry"){
+        location.reload();
+    } else if (ready == "play"){
+        resetGame();
+    } else {
+        readyToPlay();
+    }
 }
 
 function resetPic(){
@@ -145,6 +197,14 @@ function goodSound(){
     document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/2pac_5.mp3" type="audio/mpeg"></audio>'; 
 }
 
+function winSound(){
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/2pac_6.mp3" type="audio/mpeg"></audio>'; 
+}
+
+function winSoundTwo(){
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/chingy_1.mp3" type="audio/mpeg"></audio>'; 
+}
+
 function blinkPurp(){
     document.querySelector('#header').src = "./assets/images/hoodrap-hangman-purple.png";
 }
@@ -167,4 +227,26 @@ function strUpdater(){
         }
         document.querySelector('#getlost').innerHTML = `<h3>${guessedCorrect.join(" ")}</h3>`;
     }
+}
+
+function resetGame(){
+    guessesLeft = 9;
+    document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
+    lettersGuessed = [];
+    document.querySelector('#letters').innerText = "Incorrect Letters Guessed: " + lettersGuessed;
+    hangStart();
+    resetPic();
+    wordToGuess = gamesArr[ranNum].word;
+    gameHint = gamesArr[ranNum].hint;
+    document.querySelector('#hinttext').innerText = gameHint;
+    gameSong = gamesArr[ranNum].song;
+    document.querySelector('#song').innerHTML = gameSong;
+    strCreator();
+    letGameBegin();
+}
+
+function letGameBegin(){
+    console.log(wordToGuess);
+    console.log(gameHint);
+    console.log(gameSong);
 }
