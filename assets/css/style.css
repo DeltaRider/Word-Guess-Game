@@ -12,6 +12,7 @@ body, html {
 .bg-image {
     height:100%; 
     background-color: #7F7F7F;
+    background-image: url("../images/advisory.png");
 }
 
 .header {
@@ -19,6 +20,7 @@ body, html {
     background-color: #404040;
     border-bottom: 5px solid #E5E5E5;
     text-align: center;
+    box-shadow: 0px 6px 20px 1px #8f01a2
 }
 
 .header p {
@@ -34,6 +36,7 @@ body, html {
     height: 646px;
     background-color: #E5E5E5;
     border-bottom: black solid 5px;
+    box-shadow: 0px 21px 25px 5px #8f01a2
 }
 
 .container img {

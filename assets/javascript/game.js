@@ -1,42 +1,42 @@
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var lettersGuessed = [""];
+var lettersGuessed = [];
 var lettersArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var ranNum = Math.floor(Math.random()*lettersArr.length);
-var wordToGuess = ["b","i","g","l"];
+var wordToGuess = "thizzlenations"; //max 14 characters all lower case.
+var guessedCorrect = [];
 var hangStage = "./assets/images/hung-start.png";
 var newNum;
 var start = true;
 var spacebar = true;
+var k;
 
-document.onkeypress = function(e){
-    if(e.keyCode == 32 && spacebar == true){
-        document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
-        document.querySelector('#delete').innerText = "";
-        document.querySelector('#letters').innerText = "Incorrect Letters Guessed: " + lettersGuessed;
-        document.querySelector('#hint').innerText = "Hint:";
-        document.querySelector('#hinttext').innerText = "This is where the hint will go to help you figure out the word, name, or phrase represented by underscores below.  This first game is used as a tutorial so you can get the hang (no pun intended) of the game before we start keeping score.  The tutorial is always the same, but from here on out, the word will chosen randomly.  This tutorial also acts as a tribute to my favorite old school rapper Big L from the D.I.T.C. Crew.  If you can't guess the word from this hint, you are a fool.  But feel free to test out a couple of mistakes before guessing correclty.";
-        document.querySelector('#getlost').innerHTML = "<h3>_ _ _ \xa0_</h3>";
-        hangStart();
-        gameTime();
-        spacebar = false;
-        document.onkeyup = grabKeyPressed;
+function beginTutorial(){
+    document.onkeypress = function(e){
+        if(e.keyCode == 32 && spacebar == true){
+            document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
+            document.querySelector('#delete').innerText = "";
+            document.querySelector('#letters').innerText = "Incorrect Letters Guessed: " + lettersGuessed;
+            document.querySelector('#hint').innerText = "Hint:";
+            document.querySelector('#hinttext').innerText = "This is where the hint will go to help you figure out the word, name, or phrase represented by underscores below.  This first game is used as a tutorial so you can get the hang (no pun intended) of the game before we start keeping score.  The tutorial is always the same, but from here on out, the word will chosen randomly.  This tutorial also acts as a tribute to my favorite old school rapper Big L from the D.I.T.C. Crew.  If you can't guess the word from this hint, you are a fool.  But feel free to test out a couple of mistakes before guessing correclty.";
+            strCreator();
+            hangStart();
+            tutorialTime();
+            spacebar = false;
+            document.onkeyup = grabKeyPressed;
+        }
     }
 }
 
-function gameTime(){
-    if (start == true) {
-        document.querySelector('#song').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/audio/eightenuff.mp3" type="audio/mpeg"></audio>';
-        start = false;
-    }
-}
+beginTutorial();
 
-function grabKeyPressed(){          
+
+function grabKeyPressed(){        
     if (!lettersGuessed.includes(event.key) && lettersArr.includes(event.key) && !wordToGuess.includes(event.key)){
         lettersGuessed.push(event.key);
-        document.querySelector("#letters").innerText = "Incorrect Letters Guessed: " + lettersGuessed.toString().substr(1);
-        guessesLeft--;
+        typeLetters();
+        guessCounter();
         document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
         hangChange();
         if (guessesLeft>0){
@@ -46,6 +46,7 @@ function grabKeyPressed(){          
             setTimeout(blinkBlue, 600);
             setTimeout(resetPic, 900); 
         } else if (guessesLeft===0){
+            !lettersGuessed.push(event.key);
             loseSound();
             blinkBlue();
             setTimeout(blinkRed, 300);
@@ -56,8 +57,10 @@ function grabKeyPressed(){          
             setTimeout(blinkBlue, 1800);
             setTimeout(blinkRed, 2100);
             setTimeout(blinkBlue, 2400);
+            setTimeout(readyToPlay, 2400);
         }
-    } else if (wordToGuess.includes(event.key)){
+    } else if (guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key)){
+        strUpdater();
         goodSound();
         blinkPurp();
         setTimeout(blinkWhite, 300);
@@ -65,6 +68,25 @@ function grabKeyPressed(){          
         setTimeout(resetPic, 900); 
     }
 
+}
+
+function guessCounter(){
+    if (guessesLeft>0){
+        guessesLeft--;
+    }
+}
+
+function typeLetters(){
+    if (guessesLeft>0){
+        document.querySelector("#letters").innerText = "Incorrect Letters Guessed: " + lettersGuessed.toString().substr(0);
+    }
+}
+
+function tutorialTime(){
+    if (start == true) {
+        document.querySelector('#song').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/audio/eightenuff.mp3" type="audio/mpeg"></audio>';
+        start = false;
+    }
 }
 
 function hangStart(){
@@ -93,6 +115,10 @@ function hangChange(){
     } else if (guessesLeft === 0){
         document.querySelector('#hangstage').src = "./assets/images/hung.png"; 
     }
+}
+
+function readyToPlay(){
+    var ready = prompt("Well done sucka.  You completed the tutorial.  Easy right?  \n\nIf you want to retry the tutorial, type \"retry\" and press OK.  \n\nIf you're ready to play for real, type \"play\" and press OK. \n\nIf and when you're done playing, exit the window.")
 }
 
 function resetPic(){
@@ -127,55 +153,18 @@ function blinkWhite(){
     document.querySelector('#header').src = "./assets/images/hoodrap-hangman-white.png";
 }
 
+function strCreator(){
+    for (var i=0; i<wordToGuess.length; i++){
+        guessedCorrect[i] = "_";
+    }
+    document.querySelector('#getlost').innerHTML = `<h3>${guessedCorrect.join(" ")}</h3>`;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// document.onkeyup = function(){
-//     if (letterToGuess.includes(event.key)){
-//         wins++;
-//         document.querySelector('#wins').innerText = "Wins: " + wins;
-//         guessesLeft = 9;
-//         document.querySelector('#tries').innerText = "Guesses Left: " + guessesLeft;
-//         lettersGuessed = [""];
-//         document.querySelector('#letters').innerText = "Letters Guessed: ";
-//         playAgain = prompt("You win! The letter was " + letterToGuess + ". Do you want to play again? Enter y for yes! Otherwise, exit the window.")
-//         if (playAgain = "y"){
-//             newNum = Math.floor(Math.random()*lettersArr.length);
-//             letterToGuess = lettersArr[newNum];
-//         }        
-//     } else {
-//         lettersGuessed.push(event.key);
-//         document.querySelector('#letters').innerText = "Letters Guessed: " + lettersGuessed;
-//         guessesLeft--;
-//         document.querySelector('#tries').innerText = "Guesses Left: " + guessesLeft;
-//         if (guessesLeft < 1){
-//             losses++;
-//             document.querySelector('#losses').innerText = "Losses: " + losses;
-//             guessesLeft = 9;
-//             document.querySelector('#tries').innerText = "Guesses Left: " + guessesLeft;
-//             lettersGuessed = [""];
-//             document.querySelector('#letters').innerText = "Letters Guessed: ";
-//             playAgain = prompt('The letter was ' + letterToGuess + '! You lose! Do you want to play again? Enter y for yes. Otherwise, exit the window.');
-//             if (playAgain = "y"){
-//                 newNum = Math.floor(Math.random()*lettersArr.length);
-//                 letterToGuess = lettersArr[newNum];
-//             }
-//         }
-//     }
-// }
+function strUpdater(){
+    for (var i=0; i<wordToGuess.length; i++){
+        if (wordToGuess[i] == event.key){
+            guessedCorrect.splice(i, 1, event.key);
+        }
+        document.querySelector('#getlost').innerHTML = `<h3>${guessedCorrect.join(" ")}</h3>`;
+    }
+}
