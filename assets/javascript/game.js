@@ -4,7 +4,7 @@ var guessesLeft = 9;
 var lettersGuessed = [""];
 var lettersArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var ranNum = Math.floor(Math.random()*lettersArr.length);
-var wordToGuess = "Big L";
+var wordToGuess = ["b","i","g","l"];
 var hangStage = "./assets/images/hung-start.png";
 var newNum;
 var start = true;
@@ -33,13 +33,38 @@ function gameTime(){
 }
 
 function grabKeyPressed(){          
-    if (!lettersGuessed.includes(event.key) && lettersArr.includes(event.key)){
+    if (!lettersGuessed.includes(event.key) && lettersArr.includes(event.key) && !wordToGuess.includes(event.key)){
         lettersGuessed.push(event.key);
         document.querySelector("#letters").innerText = "Incorrect Letters Guessed: " + lettersGuessed.toString().substr(1);
         guessesLeft--;
         document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
         hangChange();
+        if (guessesLeft>0){
+            badSound(); 
+            blinkBlue();
+            setTimeout(blinkRed, 300);
+            setTimeout(blinkBlue, 600);
+            setTimeout(resetPic, 900); 
+        } else if (guessesLeft===0){
+            loseSound();
+            blinkBlue();
+            setTimeout(blinkRed, 300);
+            setTimeout(blinkBlue, 600);
+            setTimeout(blinkRed, 900);
+            setTimeout(blinkBlue, 1200);
+            setTimeout(blinkRed, 1500);
+            setTimeout(blinkBlue, 1800);
+            setTimeout(blinkRed, 2100);
+            setTimeout(blinkBlue, 2400);
+        }
+    } else if (wordToGuess.includes(event.key)){
+        goodSound();
+        blinkPurp();
+        setTimeout(blinkWhite, 300);
+        setTimeout(blinkPurp, 600);
+        setTimeout(resetPic, 900); 
     }
+
 }
 
 function hangStart(){
@@ -70,8 +95,37 @@ function hangChange(){
     }
 }
 
+function resetPic(){
+    document.querySelector('#header').src = "./assets/images/hoodrap-hangman.png";
+}
 
+function blinkRed(){
+    document.querySelector('#header').src = "./assets/images/hoodrap-hangman-red.png";
+}
 
+function blinkBlue(){
+    document.querySelector('#header').src = "./assets/images/hoodrap-hangman-blue.png";
+}
+
+function badSound(){
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/krsone.mp3" type="audio/mpeg"></audio>';
+}
+
+function loseSound(){
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/krsone_1.mp3" type="audio/mpeg"></audio>';
+}
+
+function goodSound(){
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/2pac_5.mp3" type="audio/mpeg"></audio>'; 
+}
+
+function blinkPurp(){
+    document.querySelector('#header').src = "./assets/images/hoodrap-hangman-purple.png";
+}
+
+function blinkWhite(){
+    document.querySelector('#header').src = "./assets/images/hoodrap-hangman-white.png";
+}
 
 
 
