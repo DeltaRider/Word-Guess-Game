@@ -42,8 +42,7 @@ var gamesArr = [
 var ranNum = Math.floor(Math.random()*gamesArr.length);
 var gameHint;
 var gameSong;
-
-console.log(ranNum);
+var gamePlay;
     
 function beginTutorial(){
     document.onkeypress = function(e){
@@ -230,6 +229,7 @@ function strUpdater(){
 }
 
 function resetGame(){
+    goodCount = 1;
     guessesLeft = 9;
     document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
     lettersGuessed = [];
@@ -242,11 +242,67 @@ function resetGame(){
     gameSong = gamesArr[ranNum].song;
     document.querySelector('#song').innerHTML = gameSong;
     strCreator();
+    gamePlay=true;
     letGameBegin();
 }
 
 function letGameBegin(){
-    console.log(wordToGuess);
-    console.log(gameHint);
-    console.log(gameSong);
+    document.onkeyup = regularGamePlay;
+}
+
+function regularGamePlay(){        
+    if (gamePlay==true && !lettersGuessed.includes(event.key) && lettersArr.includes(event.key) && !wordToGuess.includes(event.key)){
+        lettersGuessed.push(event.key);
+        typeLetters();
+        guessCounter();
+        document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
+        hangChange();
+        if (gamePlay==true && guessesLeft>0){
+            badSound(); 
+            blinkBlue();
+            setTimeout(blinkRed, 300);
+            setTimeout(blinkBlue, 600);
+            setTimeout(resetPic, 900); 
+        } else if (gamePlay==true && guessesLeft===0){
+            !lettersGuessed.push(event.key);
+            gamePlay = false;
+            guessedCorrect = [];
+            loseSound();
+            blinkBlue();
+            losses++;
+            document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
+            ranNum = Math.floor(Math.random()*gamesArr.length);
+            setTimeout(blinkRed, 300);
+            setTimeout(blinkBlue, 600);
+            setTimeout(blinkRed, 900);
+            setTimeout(blinkBlue, 1200);
+            setTimeout(blinkRed, 1500);
+            setTimeout(blinkBlue, 1800);
+            setTimeout(blinkRed, 2100);
+            setTimeout(blinkBlue, 2400);
+            setTimeout(resetGame, 2400);
+        }
+    } else if (gamePlay==true && guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key) && gamePlay==true){
+        goodCount++;
+        strUpdater();
+        goodSound();
+        blinkPurp();
+        setTimeout(blinkWhite, 300);
+        setTimeout(blinkPurp, 600);
+        setTimeout(resetPic, 900);
+        if (guessedCorrect.join("") === wordToGuess){
+            gamePlay=false;
+            guessedCorrect = [];
+            wins++;
+            document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
+            ranNum = Math.floor(Math.random()*gamesArr.length);
+            setTimeout(blinkWhite, 900);
+            setTimeout(winSound, 900);
+            setTimeout(blinkPurp, 1200);
+            setTimeout(winSoundTwo, 1500);
+            setTimeout(blinkWhite, 1500);
+            setTimeout(blinkPurp, 1800);
+            setTimeout(resetGame, 2100);
+        }
+    } 
 }
