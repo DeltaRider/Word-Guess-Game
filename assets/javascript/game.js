@@ -83,6 +83,61 @@ var gamesArr = [
         word: 'bitchkilla',
         hint: `American rapper AP.9 also goes by what alias?`
     },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/015-atmosphere-bathroom.mp3" type="audio/mpeg"></audio>',
+        word: 'minneapolis',
+        hint: `American hip hop duo Atmosphere is from which city in the United States?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/016-az-comeup.mp3" type="audio/mpeg"></audio>',
+        word: 'brooklyn',
+        hint: `American rapper AZ is from which borough of New York City?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/017-az-payback.mp3" type="audio/mpeg"></audio>',
+        word: 'nas',
+        hint: `American rapper AZ after partnered with which popular New York Rapper?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/018-az-action.mp3" type="audio/mpeg"></audio>',
+        word: 'firm',
+        hint: `American rapper AZ is a member of which hip hop group? The...`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/019-az-hustler.mp3" type="audio/mpeg"></audio>',
+        word: 'az',
+        hint: `Anthony Cruz is the real name for which American rapper?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/020-az-paradise.mp3" type="audio/mpeg"></audio>',
+        word: 'underrated',
+        hint: `American rapper AZ is considered "one of the most _________ rappers of all time."`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/021-az-magichour.mp3" type="audio/mpeg"></audio>',
+        word: 'clsmooth',
+        hint: `Who is the second rapper featured on this song in 1 minute and 30 seconds?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/022-az-fanmail.mp3" type="audio/mpeg"></audio>',
+        word: 'illmatic',
+        hint: `American rapper AZ was featured first on which album by Nas?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/023-az-gimme.mp3" type="audio/mpeg"></audio>',
+        word: 'five',
+        hint: `How many boroughs are there in New York City?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/024-az-momoney.mp3" type="audio/mpeg"></audio>',
+        word: 'nas',
+        hint: `Who starts out rapping first on this song?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/025-az-hardest.mp3" type="audio/mpeg"></audio>',
+        word: 'sosa',
+        hint: `American rapper AZ also goes by what nickname?`
+    },
 ];
 
 
