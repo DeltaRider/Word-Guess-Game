@@ -175,7 +175,7 @@ function typeLetters(){
 
 function tutorialTime(){
     if (start == true) {
-        document.querySelector('#song').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/audio/eightenuff.mp3" type="audio/mpeg"></audio>';
+        document.querySelector('#song').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/audio/000-bigl-eightenuff.mp3" type="audio/mpeg"></audio>';
         start = false;
     }
 }
