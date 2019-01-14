@@ -61,7 +61,7 @@ var gamesArr = [
     {
         song: '<audio controls style="display:none" autoplay><source src="./assets/audio/010-nickatina-scotty.mp3" type="audio/mpeg"></audio>',
         word: 'cocaine',
-        hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut.  Chewy is weed with what in it or on it?`
+        hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut."  Chewy is weed with what in it or on it?`
     },
     {
         song: '<audio controls style="display:none" autoplay><source src="./assets/audio/011-nickatina-train.mp3" type="audio/mpeg"></audio>',
