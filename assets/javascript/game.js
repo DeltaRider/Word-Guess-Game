@@ -264,6 +264,7 @@ function regularGamePlay(){        
             setTimeout(blinkBlue, 600);
             setTimeout(resetPic, 900); 
         } else if (gamePlay==true && guessesLeft===0){
+            document.querySelector('#getlost').innerHTML = `<h3 style="color:red;">${wordToGuess.split("").join(" ")}</h3>`;
             !lettersGuessed.push(event.key);
             gamePlay = false;
             guessedCorrect = [];
@@ -280,7 +281,7 @@ function regularGamePlay(){        
             setTimeout(blinkBlue, 1800);
             setTimeout(blinkRed, 2100);
             setTimeout(blinkBlue, 2400);
-            setTimeout(resetGame, 2400);
+            setTimeout(resetGame, 4400);
         }
     } else if (gamePlay==true && guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key) && gamePlay==true){
         goodCount++;
@@ -302,7 +303,7 @@ function regularGamePlay(){        
             setTimeout(winSoundTwo, 1500);
             setTimeout(blinkWhite, 1500);
             setTimeout(blinkPurp, 1800);
-            setTimeout(resetGame, 2100);
+            setTimeout(resetGame, 3800);
         }
     } 
 }
