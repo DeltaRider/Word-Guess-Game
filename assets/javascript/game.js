@@ -37,8 +37,56 @@ var gamesArr = [
         song: '<audio controls style="display:none" autoplay><source src="./assets/audio/005-nickatina-gitdown.mp3" type="audio/mpeg"></audio>',
         word: 'equipto',
         hint: "Andre Nickatina collaborates on many albums, but especially with one particular artist.  An example would be the 2005 album Horns and Halos.  Who is this artist?"
-    }
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/006-nickatina-yeah.mp3" type="audio/mpeg"></audio>',
+        word: 'fillmore',
+        hint: "American rapper Messy Marv is from which district in San Francisco, California?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/007-nickatina-jungle.mp3" type="audio/mpeg"></audio>',
+        word: 'fillmore',
+        hint: "American rapper Andre Nickatina is from which district in San Francisco, California?"
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/008-nickatina-pbreakdown.mp3" type="audio/mpeg"></audio>',
+        word: 'nickatina',
+        hint: "American rapper Equipto collaborated with which Bay Area rapper on the Midnight Machine Gun Rhymes and Alibis album? Andre..."
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/009-nickatina-sayhey.mp3" type="audio/mpeg"></audio>',
+        word: 'selling',
+        hint: `If you're "slangin" in the streets, you're' doing what in the streets?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/010-nickatina-scotty.mp3" type="audio/mpeg"></audio>',
+        word: 'cocaine',
+        hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut.  Chewy is weed with what in it or on it?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/011-nickatina-train.mp3" type="audio/mpeg"></audio>',
+        word: 'kilogram',
+        hint: `In rap and drug culture, a "key" is short for what unit of measurement?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/012-nickatina-ghettostar.mp3" type="audio/mpeg"></audio>',
+        word: 'frisco',
+        hint: `This is a slang term for the city of San Francisco, California?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/013-ap9-swag.mp3" type="audio/mpeg"></audio>',
+        word: 'coco',
+        hint: `American rapper AP.9 allegedly banged which celebrity wife?`
+    },
+    {
+        song: '<audio controls style="display:none" autoplay><source src="./assets/audio/014-ap9-moneyup.mp3" type="audio/mpeg"></audio>',
+        word: 'bitchkilla',
+        hint: `American rapper AP.9 also goes by what alias?`
+    },
 ];
+
+
+
 var ranNum = Math.floor(Math.random()*gamesArr.length);
 var gameHint;
 var gameSong;
