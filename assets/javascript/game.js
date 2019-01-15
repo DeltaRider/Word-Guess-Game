@@ -296,7 +296,7 @@ function loseSound(){
 }
 
 function goodSound(){
-    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/2pac_5.mp3" type="audio/mpeg"></audio>'; 
+    document.querySelector('#sound').innerHTML = '<audio controls style="display:none" autoplay><source src="./assets/sounds/nas_1.mp3" type="audio/mpeg"></audio>'; 
 }
 
 function winSound(){
