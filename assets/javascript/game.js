@@ -336,6 +336,7 @@ function resetGame(){
     guessesLeft = 9;
     document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
     lettersGuessed = [];
+    guessedCorrect = [];
     document.querySelector('#letters').innerText = "Incorrect Letters Guessed: " + lettersGuessed;
     hangStart();
     resetPic();
