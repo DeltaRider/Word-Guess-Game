@@ -8,7 +8,6 @@ function loadGame(){
     var guessedCorrect = [];
     var goodCount = 0;
     var hangStage = "./assets/images/hung-start.png";
-    var newNum;
     var start = true;
     var spacebar = true;
     var k;
@@ -17,136 +16,159 @@ function loadGame(){
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/001-allcity-actual.mp3" type="audio/mpeg"></audio>',
             word: 'primo',
-            hint: "Christopher Edward Martin, known professionally as DJ Premier, has collaborated with many East Coast Rappers, including the current group playing named All City.  One of DJ Premier's well known nickname's is what 5 letter word?"
+            hint: "Christopher Edward Martin, known professionally as DJ Premier, has collaborated with many East Coast Rappers, including the current group playing named All City.  One of DJ Premier's well known nickname's is what 5 letter word?",
+            num: '0'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/002-allcity-moveonyou.mp3" type="audio/mpeg"></audio>',
             word: 'allcity',
-            hint: "This American rap duo composed of Brooklyn-based rappers J. Mega and Greg Valentine is best known for its hit single \"The Actual\", of which they partnered with DJ Premier for the beat.  What is this rap duo's name?"
+            hint: "This American rap duo composed of Brooklyn-based rappers J. Mega and Greg Valentine is best known for its hit single \"The Actual\", of which they partnered with DJ Premier for the beat.  What is this rap duo's name?",
+            num: '1'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/003-nickatina-ayo.mp3" type="audio/mpeg"></audio>',
             word: 'cocaine',
-            hint: "In the song Ayo for Yayo by Andre Nickatina, he frequently refers to Yayo.  Yayo is slang for what?"
+            hint: "In the song Ayo for Yayo by Andre Nickatina, he frequently refers to Yayo.  Yayo is slang for what?",
+            num: '2'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/004-nickatina-4am.mp3" type="audio/mpeg"></audio>',
             word: 'oakland',
-            hint: "In the song 4am-Bay Bridge Music by Andre Nickatina, refers to the Bay Bridge in the San Francisco Bay Area.  The Bay Bridge connects San Francisco to which city?"
+            hint: "In the song 4am-Bay Bridge Music by Andre Nickatina, refers to the Bay Bridge in the San Francisco Bay Area.  The Bay Bridge connects San Francisco to which city?",
+            num: '3'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/005-nickatina-gitdown.mp3" type="audio/mpeg"></audio>',
             word: 'equipto',
-            hint: "Andre Nickatina collaborates on many albums, but especially with one particular artist.  An example would be the 2005 album Horns and Halos.  Who is this artist?"
+            hint: "Andre Nickatina collaborates on many albums, but especially with one particular artist.  An example would be the 2005 album Horns and Halos.  Who is this artist?",
+            num: '4'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/006-nickatina-yeah.mp3" type="audio/mpeg"></audio>',
             word: 'fillmore',
-            hint: "American rapper Messy Marv is from which district in San Francisco, California?"
+            hint: "American rapper Messy Marv is from which district in San Francisco, California?",
+            num: '5'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/007-nickatina-jungle.mp3" type="audio/mpeg"></audio>',
             word: 'fillmore',
-            hint: "American rapper Andre Nickatina is from which district in San Francisco, California?"
+            hint: "American rapper Andre Nickatina is from which district in San Francisco, California?",
+            num: '6'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/008-nickatina-pbreakdown.mp3" type="audio/mpeg"></audio>',
             word: 'nickatina',
-            hint: "American rapper Equipto collaborated with which Bay Area rapper on the Midnight Machine Gun Rhymes and Alibis album? Andre..."
+            hint: "American rapper Equipto collaborated with which Bay Area rapper on the Midnight Machine Gun Rhymes and Alibis album? Andre...",
+            num: '7'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/009-nickatina-sayhey.mp3" type="audio/mpeg"></audio>',
             word: 'selling',
-            hint: `If you're "slangin" in the streets, you're' doing what in the streets?`
+            hint: `If you're "slangin" in the streets, you're' doing what in the streets?`,
+            num: '8'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/010-nickatina-scotty.mp3" type="audio/mpeg"></audio>',
             word: 'cocaine',
-            hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut."  Chewy is weed with what in it or on it?`
+            hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut."  Chewy is weed with what in it or on it?`,
+            num: '9'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/011-nickatina-train.mp3" type="audio/mpeg"></audio>',
             word: 'kilogram',
-            hint: `In rap and drug culture, a "key" is short for what unit of measurement?`
+            hint: `In rap and drug culture, a "key" is short for what unit of measurement?`,
+            num: '10'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/012-nickatina-ghettostar.mp3" type="audio/mpeg"></audio>',
             word: 'frisco',
-            hint: `This is a slang term for the city of San Francisco, California?`
+            hint: `This is a slang term for the city of San Francisco, California?`,
+            num: '11'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/013-ap9-swag.mp3" type="audio/mpeg"></audio>',
             word: 'coco',
-            hint: `American rapper AP.9 allegedly banged which celebrity wife?`
+            hint: `American rapper AP.9 allegedly banged which celebrity wife?`,
+            num: '12'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/014-ap9-moneyup.mp3" type="audio/mpeg"></audio>',
             word: 'bitchkilla',
-            hint: `American rapper AP.9 also goes by what alias?`
+            hint: `American rapper AP.9 also goes by what alias?`,
+            num: '13'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/015-atmosphere-bathroom.mp3" type="audio/mpeg"></audio>',
             word: 'minneapolis',
-            hint: `American hip hop duo Atmosphere is from which city in the United States?`
+            hint: `American hip hop duo Atmosphere is from which city in the United States?`,
+            num: '14'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/016-az-comeup.mp3" type="audio/mpeg"></audio>',
             word: 'brooklyn',
-            hint: `American rapper AZ is from which borough of New York City?`
+            hint: `American rapper AZ is from which borough of New York City?`,
+            num: '15'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/017-az-payback.mp3" type="audio/mpeg"></audio>',
             word: 'nas',
-            hint: `American rapper AZ after partnered with which popular New York Rapper?`
+            hint: `American rapper AZ after partnered with which popular New York Rapper?`,
+            num: '16'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/018-az-action.mp3" type="audio/mpeg"></audio>',
             word: 'firm',
-            hint: `American rapper AZ is a member of which hip hop group? The...`
+            hint: `American rapper AZ is a member of which hip hop group? The...`,
+            num: '17'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/019-az-hustler.mp3" type="audio/mpeg"></audio>',
             word: 'az',
-            hint: `Anthony Cruz is the real name for which American rapper?`
+            hint: `Anthony Cruz is the real name for which American rapper?`,
+            num: '18'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/020-az-paradise.mp3" type="audio/mpeg"></audio>',
             word: 'underrated',
-            hint: `American rapper AZ is considered "one of the most _________ rappers of all time."`
+            hint: `American rapper AZ is considered "one of the most _________ rappers of all time."`,
+            num: '19'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/021-az-magichour.mp3" type="audio/mpeg"></audio>',
             word: 'clsmooth',
-            hint: `Who is the second rapper featured on this song in 1 minute and 30 seconds?`
+            hint: `Who is the second rapper featured on this song in 1 minute and 30 seconds?`,
+            num: '20'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/022-az-fanmail.mp3" type="audio/mpeg"></audio>',
             word: 'illmatic',
-            hint: `American rapper AZ was featured first on which album by Nas?`
+            hint: `American rapper AZ was featured first on which album by Nas?`,
+            num: '21'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/023-az-gimme.mp3" type="audio/mpeg"></audio>',
             word: 'five',
-            hint: `How many boroughs are there in New York City?`
+            hint: `How many boroughs are there in New York City?`,
+            num: '22'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/024-az-momoney.mp3" type="audio/mpeg"></audio>',
             word: 'nas',
-            hint: `Who starts out rapping first on this song?`
+            hint: `Who starts out rapping first on this song?`,
+            num: '23'
         },
         {
             song: '<audio controls style="display:none" autoplay><source src="./assets/audio/025-az-hardest.mp3" type="audio/mpeg"></audio>',
             word: 'sosa',
-            hint: `American rapper AZ also goes by what nickname?`
+            hint: `American rapper AZ also goes by what nickname?`,
+            num: '24'
         },
     ];
-
-
-
     var ranNum = Math.floor(Math.random()*gamesArr.length);
     var gameHint;
     var gameSong;
     var gamePlay;
+    var wordsPicked = [];
         
     function beginTutorial(){
         document.onkeypress = function(e){
@@ -333,6 +355,11 @@ function loadGame(){
     }
 
     function resetGame(){
+        var n = ranNum.toString();
+        if (wordsPicked.includes(n)){
+            ranNum = Math.floor(Math.random()*gamesArr.length);
+            resetGame();
+        } else
         goodCount = 1;
         guessesLeft = 9;
         document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
@@ -346,6 +373,8 @@ function loadGame(){
         document.querySelector('#hinttext').innerText = gameHint;
         gameSong = gamesArr[ranNum].song;
         document.querySelector('#song').innerHTML = gameSong;
+        wordsPicked.push(gamesArr[ranNum].num);
+        console.log(wordsPicked);
         strCreator();
         gamePlay=true;
         letGameBegin();
@@ -378,6 +407,7 @@ function loadGame(){
                 losses++;
                 document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
                 ranNum = Math.floor(Math.random()*gamesArr.length);
+                console.log(ranNum + " lose")
                 setTimeout(blinkRed, 300);
                 setTimeout(blinkBlue, 600);
                 setTimeout(blinkRed, 900);
@@ -402,6 +432,7 @@ function loadGame(){
                 wins++;
                 document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
                 ranNum = Math.floor(Math.random()*gamesArr.length);
+                console.log(ranNum + " win")
                 setTimeout(blinkWhite, 900);
                 setTimeout(winSound, 900);
                 setTimeout(blinkPurp, 1200);
