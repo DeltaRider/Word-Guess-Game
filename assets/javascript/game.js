@@ -43,126 +43,6 @@ function loadGame(){
             hint: "Andre Nickatina collaborates on many albums, but especially with one particular artist.  An example would be the 2005 album Horns and Halos.  Who is this artist?",
             num: '4'
         },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/006-nickatina-yeah.mp3" type="audio/mpeg"></audio>',
-            word: 'fillmore',
-            hint: "American rapper Messy Marv is from which district in San Francisco, California?",
-            num: '5'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/007-nickatina-jungle.mp3" type="audio/mpeg"></audio>',
-            word: 'fillmore',
-            hint: "American rapper Andre Nickatina is from which district in San Francisco, California?",
-            num: '6'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/008-nickatina-pbreakdown.mp3" type="audio/mpeg"></audio>',
-            word: 'nickatina',
-            hint: "American rapper Equipto collaborated with which Bay Area rapper on the Midnight Machine Gun Rhymes and Alibis album? Andre...",
-            num: '7'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/009-nickatina-sayhey.mp3" type="audio/mpeg"></audio>',
-            word: 'selling',
-            hint: `If you're "slangin" in the streets, you're' doing what in the streets?`,
-            num: '8'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/010-nickatina-scotty.mp3" type="audio/mpeg"></audio>',
-            word: 'cocaine',
-            hint: `In this song, Andre Nickatina say's, "I smoke chewy like a muthaf*ckin nut."  Chewy is weed with what in it or on it?`,
-            num: '9'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/011-nickatina-train.mp3" type="audio/mpeg"></audio>',
-            word: 'kilogram',
-            hint: `In rap and drug culture, a "key" is short for what unit of measurement?`,
-            num: '10'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/012-nickatina-ghettostar.mp3" type="audio/mpeg"></audio>',
-            word: 'frisco',
-            hint: `This is a slang term for the city of San Francisco, California?`,
-            num: '11'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/013-ap9-swag.mp3" type="audio/mpeg"></audio>',
-            word: 'coco',
-            hint: `American rapper AP.9 allegedly banged which celebrity wife?`,
-            num: '12'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/014-ap9-moneyup.mp3" type="audio/mpeg"></audio>',
-            word: 'bitchkilla',
-            hint: `American rapper AP.9 also goes by what alias?`,
-            num: '13'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/015-atmosphere-bathroom.mp3" type="audio/mpeg"></audio>',
-            word: 'minneapolis',
-            hint: `American hip hop duo Atmosphere is from which city in the United States?`,
-            num: '14'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/016-az-comeup.mp3" type="audio/mpeg"></audio>',
-            word: 'brooklyn',
-            hint: `American rapper AZ is from which borough of New York City?`,
-            num: '15'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/017-az-payback.mp3" type="audio/mpeg"></audio>',
-            word: 'nas',
-            hint: `American rapper AZ after partnered with which popular New York Rapper?`,
-            num: '16'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/018-az-action.mp3" type="audio/mpeg"></audio>',
-            word: 'firm',
-            hint: `American rapper AZ is a member of which hip hop group? The...`,
-            num: '17'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/019-az-hustler.mp3" type="audio/mpeg"></audio>',
-            word: 'az',
-            hint: `Anthony Cruz is the real name for which American rapper?`,
-            num: '18'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/020-az-paradise.mp3" type="audio/mpeg"></audio>',
-            word: 'underrated',
-            hint: `American rapper AZ is considered "one of the most _________ rappers of all time."`,
-            num: '19'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/021-az-magichour.mp3" type="audio/mpeg"></audio>',
-            word: 'clsmooth',
-            hint: `Who is the second rapper featured on this song in 1 minute and 30 seconds?`,
-            num: '20'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/022-az-fanmail.mp3" type="audio/mpeg"></audio>',
-            word: 'illmatic',
-            hint: `American rapper AZ was featured first on which album by Nas?`,
-            num: '21'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/023-az-gimme.mp3" type="audio/mpeg"></audio>',
-            word: 'five',
-            hint: `How many boroughs are there in New York City?`,
-            num: '22'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/024-az-momoney.mp3" type="audio/mpeg"></audio>',
-            word: 'nas',
-            hint: `Who starts out rapping first on this song?`,
-            num: '23'
-        },
-        {
-            song: '<audio controls style="display:none" autoplay><source src="./assets/audio/025-az-hardest.mp3" type="audio/mpeg"></audio>',
-            word: 'sosa',
-            hint: `American rapper AZ also goes by what nickname?`,
-            num: '24'
-        },
     ];
     var ranNum = Math.floor(Math.random()*gamesArr.length);
     var gameHint;
@@ -354,6 +234,40 @@ function loadGame(){
         }
     }
 
+    function gameOver(){        
+        if (wins + losses == gamesArr.length && wins < losses){
+            var loser = prompt(`Damn, I knew you was a sucka that didn't know shit about rap.  
+
+            You lost ${losses} times and only won ${wins} times.  You lost more than you won! 
+            
+            If you want to try again, type "retry" and press OK.
+            
+            If and when you're done playing, type "exit" and press OK to quit.`)
+            if (loser == "retry"){
+                location.reload();
+            } else if (loser == "exit"){
+                window.close();
+            } else {
+                gameOver();
+            }
+        }  if (wins + losses == gamesArr.length && wins > losses){
+            var winner = prompt(`Damn, I guess you do know a little something about rap.  
+
+            You won ${wins} times and only lost ${losses} times.  You won more than you lost! 
+            
+            Well, if you want to play again, type "play" and press OK.
+            
+            If and when you're done playing, type "exit" and press OK to quit.`)
+            if (winner == "play"){
+                location.reload();
+            } else if (winner == "exit"){
+                window.close();
+            } else {
+                gameOver();
+            }
+        } else resetGame();
+    }
+
     function resetGame(){
         var n = ranNum.toString();
         if (wordsPicked.includes(n)){
@@ -374,7 +288,6 @@ function loadGame(){
         gameSong = gamesArr[ranNum].song;
         document.querySelector('#song').innerHTML = gameSong;
         wordsPicked.push(gamesArr[ranNum].num);
-        console.log(wordsPicked);
         strCreator();
         gamePlay=true;
         letGameBegin();
@@ -407,7 +320,6 @@ function loadGame(){
                 losses++;
                 document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
                 ranNum = Math.floor(Math.random()*gamesArr.length);
-                console.log(ranNum + " lose")
                 setTimeout(blinkRed, 300);
                 setTimeout(blinkBlue, 600);
                 setTimeout(blinkRed, 900);
@@ -416,7 +328,7 @@ function loadGame(){
                 setTimeout(blinkBlue, 1800);
                 setTimeout(blinkRed, 2100);
                 setTimeout(blinkBlue, 2400);
-                setTimeout(resetGame, 4400);
+                setTimeout(gameOver, 4400);
             }
         } else if (gamePlay==true && guessesLeft!==0 && !guessedCorrect.includes(event.key) && wordToGuess.includes(event.key) && lettersArr.includes(event.key) && gamePlay==true){
             goodCount++;
@@ -432,14 +344,13 @@ function loadGame(){
                 wins++;
                 document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
                 ranNum = Math.floor(Math.random()*gamesArr.length);
-                console.log(ranNum + " win")
                 setTimeout(blinkWhite, 900);
                 setTimeout(winSound, 900);
                 setTimeout(blinkPurp, 1200);
                 setTimeout(winSoundTwo, 1500);
                 setTimeout(blinkWhite, 1500);
                 setTimeout(blinkPurp, 1800);
-                setTimeout(resetGame, 3800);
+                setTimeout(gameOver, 3800);
             }
         } 
     }
