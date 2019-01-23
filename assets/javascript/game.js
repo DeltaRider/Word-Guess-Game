@@ -173,6 +173,11 @@ function loadGame(){
     function beginTutorial(){
         document.onkeypress = function(e){
             if(e.keyCode == 32 && spacebar == true){
+                document.querySelector('#scoreboard').innerText = `SCOREBOARD`;
+                document.querySelector('#tenwins').innerText = `Win 10`;
+                document.querySelector('#thirtywins').innerText = `Win 30`;
+                document.querySelector('#hundredwins').innerText = `Win 100`;
+                document.querySelector('#longplay').innerText = `Win Every Game (${gamesArr.length} Games)`;
                 document.querySelector('#score').innerText = "Guesses: " + guessesLeft + "\xa0\xa0\xa0\xa0Wins: " + wins + "\xa0\xa0\xa0\xa0Losses: " + losses;
                 document.querySelector('#delete').innerText = "";
                 document.querySelector('#letters').innerText = "Incorrect Letters Guessed: " + lettersGuessed;
